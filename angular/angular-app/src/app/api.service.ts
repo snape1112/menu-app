@@ -1,10 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { environment } from '../environments/environment';
 // import { Screen } from './screen';
 
-export const API_URL = 'http://localhost:8000/api';
-export const SERVER_URL = 'http://localhost:8000';
+export const API_URL = environment.apiUrl;
+export const SERVER_URL = environment.serverUrl;
 
 @Injectable({
   providedIn: 'root'

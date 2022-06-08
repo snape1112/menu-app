@@ -13,8 +13,10 @@ services:
       - "80:80"
     depends_on:
       - db
+    environment:
+      - DJANGO_SETTINGS=production
   ng:
     container_name: ng
     build: angular
     ports:
-      - "8080:80"
+      - "4200:80"
