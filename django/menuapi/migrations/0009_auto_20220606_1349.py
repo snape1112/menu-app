@@ -6,7 +6,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('menuapi', '0008_category_start_on_new'),
+        ('menuapi', '0007_category'),
     ]
 
     operations = [
