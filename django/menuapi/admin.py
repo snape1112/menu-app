@@ -1,3 +1,4 @@
+from pickle import TRUE
 from django.conf import settings
 from django.contrib import admin
 from menuapi.models import Screen, Category
@@ -27,5 +28,14 @@ class CategoryAdmin(admin.ModelAdmin):
                     for category in categories:  
                         name = category['productCategoryName']
                         id = category['productCategoryId']
-                        cursor.execute("UPDATE category SET category_name=%s WHERE id=%s; INSERT INTO category (category_id, category_name, arrangeable) SELECT %s, %s, false WHERE NOT EXISTS (SELECT 1 FROM category WHERE category.category_id=%s);", [name, id, id, name, id])
+                        cursor.execute("""SELECT EXISTS (
+                            SELECT FROM 
+                                pg_tables
+                            WHERE 
+                                schemaname = 'public' AND 
+                                tablename  = 'category'
+                            );""", [])
+                        result=cursor.fetchone()
+                        if(result['exists'] == TRUE):
+                            cursor.execute("UPDATE category SET category_name=%s WHERE id=%s; INSERT INTO category (category_id, category_name, arrangeable) SELECT %s, %s, false WHERE NOT EXISTS (SELECT 1 FROM category WHERE category.category_id=%s);", [name, id, id, name, id])
                                     
