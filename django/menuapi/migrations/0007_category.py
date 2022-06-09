@@ -17,6 +17,7 @@ class Migration(migrations.Migration):
                 ('category_id', models.IntegerField()),
                 ('category_name', models.CharField(max_length=100)),
                 ('arrangeable', models.BooleanField()),
+                ('start_on_new', models.BooleanField()),
             ],
             options={
                 'db_table': 'category',
