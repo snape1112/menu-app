@@ -132,3 +132,8 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR + "/media"
 
 APIKEY = 'ae66559d4a98490bbc6d76e1545eb4f3'
+
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_BUCKET_NAME = 'display-menu'
+
+STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
