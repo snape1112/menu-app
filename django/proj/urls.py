@@ -23,4 +23,5 @@ from menuapi import views as menuapi_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/menu/', menuapi_views.MenuList.as_view(), name='menu-list'),
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+] 
+# + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
