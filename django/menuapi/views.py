@@ -19,21 +19,17 @@ class MenuList(APIView):
         """
         response = {}
         r = requests.get('https://publicapi.leaflogix.net/util/AuthorizationHeader/' + settings.APIKEY)
-        print('auth_header')
         r_status = r.status_code
         if r_status == 200:
             auth_key = r.json()
-            print(auth_key)
             headers = {
                 'authorization': auth_key,
                 'consumerkey': settings.APIKEY
             }
             r = requests.get('https://publicapi.leaflogix.net/products', headers=headers)
-            print('next')
             if r.status_code == 200:
                 response['products'] = r.json()
                 screens= Screen.objects.all()
-                print('screens')
                 screen_serializer = ScreenSerializer(screens, many=True)
                 categories= Category.objects.all()
                 category_serializer = CategorySerializer(categories, many=True)
