@@ -13,6 +13,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from asyncio import Server
 from django.conf import settings
 from django.contrib import admin
 from django.urls import path
@@ -23,4 +24,5 @@ from menuapi import views as menuapi_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/menu/', menuapi_views.MenuList.as_view(), name='menu-list'),
+    path(r'^static/(?P<path>.*)$', Server,{'document_root': settings.STATIC_ROOT}),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
