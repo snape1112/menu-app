@@ -18,33 +18,33 @@ class MenuList(APIView):
         Return all screens and menu, media, categories.
         """
         response = {}
-        # r = requests.get('https://publicapi.leaflogix.net/util/AuthorizationHeader/' + settings.APIKEY)
-        # r_status = r.status_code
-        # if r_status == 200:
-        #     auth_key = r.json()
-        #     headers = {
-        #         'authorization': auth_key,
-        #         'consumerkey': settings.APIKEY
-        #     }
-        #     r = requests.get('https://publicapi.leaflogix.net/products', headers=headers)
-        #     if r.status_code == 200:
-        #         response['products'] = r.json()
-        #         screens= Screen.objects.all()
-        #         screen_serializer = ScreenSerializer(screens, many=True)
-        #         categories= Category.objects.all()
-        #         category_serializer = CategorySerializer(categories, many=True)
-        #         response['screens'] = screen_serializer.data
-        #         response['categories'] = category_serializer.data
-        #         response['status'] = 200
-        #         response['message'] = 'success'
-        #     else:
-        #         response['status'] = r.status_code
-        #         response['message'] = 'error'
-        # else:
-        #     response['status'] = r.status_code
-        #     response['message'] = 'error'
-        # return Response(response)
-        response['status'] = '200'
-        response['message'] = 'error'
+        r = requests.get('https://publicapi.leaflogix.net/util/AuthorizationHeader/' + settings.APIKEY)
+        print('auth_header')
+        r_status = r.status_code
+        if r_status == 200:
+            auth_key = r.json()
+            print(auth_key)
+            headers = {
+                'authorization': auth_key,
+                'consumerkey': settings.APIKEY
+            }
+            r = requests.get('https://publicapi.leaflogix.net/products', headers=headers)
+            print('next')
+            if r.status_code == 200:
+                response['products'] = r.json()
+                screens= Screen.objects.all()
+                print('screens')
+                screen_serializer = ScreenSerializer(screens, many=True)
+                categories= Category.objects.all()
+                category_serializer = CategorySerializer(categories, many=True)
+                response['screens'] = screen_serializer.data
+                response['categories'] = category_serializer.data
+                response['status'] = 200
+                response['message'] = 'success'
+            else:
+                response['status'] = r.status_code
+                response['message'] = 'error'
+        else:
+            response['status'] = r.status_code
+            response['message'] = 'error'
         return Response(response)
-
