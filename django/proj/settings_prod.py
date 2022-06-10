@@ -124,6 +124,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = "http://35.225.48.123/static/"
 
 CORS_ORIGIN_WHITELIST = (
 )
