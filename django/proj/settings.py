@@ -7,3 +7,4 @@ if 'DJANGO_SETTINGS' in os.environ:
 else:
     print ("PROD SERVER")
     from .settings_prod import *
+
