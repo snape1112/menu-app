@@ -8,3 +8,4 @@ else:
     print ("PROD SERVER")
     from .settings_prod import *
 
+# from .settings_dev import *
