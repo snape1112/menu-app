@@ -124,15 +124,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_ROOT = "https://storage.googleapis.com/display-menu/"
-STATIC_URL = 'https://storage.googleapis.com/display-menu/'
+STATIC_URL = '/static/'
 
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_BUCKET_NAME = 'display-menu'
 STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
 STATICFILES_DIRS = [
-    os.path.join('https://storage.googleapis.com/display-menu/', 'static'),
-    os.path.join('https://storage.googleapis.com/display-menu/', 'media'),
+    os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'media'),
 ]
 
 CORS_ORIGIN_WHITELIST = (
