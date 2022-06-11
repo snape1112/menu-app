@@ -127,6 +127,10 @@ STATIC_ROOT = "https://storage.googleapis.com/display-menu/"
 
 STATIC_URL = "https://storage.googleapis.com/display-menu/"
 
+DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+GS_BUCKET_NAME = 'display-menu'
+STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
     os.path.join(BASE_DIR, 'media'),
@@ -139,8 +143,3 @@ MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR + "/media"
 
 APIKEY = 'ae66559d4a98490bbc6d76e1545eb4f3'
-
-# DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-# GS_BUCKET_NAME = 'display-menu'
-
-# STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
