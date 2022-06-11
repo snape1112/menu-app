@@ -143,22 +143,22 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_ROOT = "https://storage.googleapis.com/display-menu/static"
+STATIC_ROOT = "https://storage.googleapis.com/display-menu/static/"
 STATIC_URL = '/static/'
 
 DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 GS_BUCKET_NAME = 'display-menu'
 STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static'),
-#     os.path.join(BASE_DIR, 'media'),
-# ]
-
-CORS_ORIGIN_WHITELIST = (
+from google.oauth2 import service_account
+GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+    BASE_DIR + "/proj//digital-display-menu-3fd3283ff526.json"
 )
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = "https://storage.googleapis.com/display-menu/media"
+
+from google.cloud import storage
+from google.oauth2 import service_account
 
 APIKEY = 'ae66559d4a98490bbc6d76e1545eb4f3'
