@@ -125,7 +125,7 @@ USE_TZ = True
 
 # STATIC_ROOT = "https://storage.googleapis.com/display-menu/static"
 STATIC_URL = '/static/'
-STATIC_ROOT = BASE_DIR + "/static_files"
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 # GS_BUCKET_NAME = 'display-menu'
