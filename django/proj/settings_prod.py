@@ -25,7 +25,8 @@ SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['35.224.227.148', '34.135.15.3']
+# ALLOWED_HOSTS = ['35.224.227.148', '34.135.15.3']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -84,6 +85,25 @@ DATABASES = {
         'HOST': os.environ['CLOUD_SQL_INSTANCE_IP'],
         'PORT': 5432,
     }
+}
+
+LOGGING = {
+   'version': 1,
+   'disable_existing_loggers': False,
+   'handlers': {
+      'file': {
+         'level': 'DEBUG',
+         'class': 'logging.FileHandler',
+         'filename': '/tmp/debug.log',
+      },
+   },
+   'loggers': {
+      'django': {
+         'handlers': ['file'],
+         'level': 'DEBUG',
+         'propagate': True,
+      },
+   },
 }
 
 
