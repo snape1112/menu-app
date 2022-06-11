@@ -123,7 +123,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_ROOT = "/static/"
+STATIC_ROOT = "https://storage.googleapis.com/display-menu/"
 
 STATIC_URL = "https://storage.googleapis.com/display-menu/"
 
