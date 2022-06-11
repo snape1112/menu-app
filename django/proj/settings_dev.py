@@ -148,7 +148,7 @@ MEDIA_ROOT = BASE_DIR + "/media"
 
 # from google.oauth2 import service_account
 # GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
-#     BASE_DIR + "/proj//digital-display-menu-3fd3283ff526.json"
+#     BASE_DIR + "/proj/digital-display-menu-3fd3283ff526.json"
 # )
 
 # MEDIA_URL = "/media/"
@@ -159,6 +159,4 @@ MEDIA_ROOT = BASE_DIR + "/media"
 #     'http://localhost:8080',
 # )
 
-# from google.cloud import storage
-# from google.oauth2 import service_account
 

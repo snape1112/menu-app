@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = os.environ['DJANGO_SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 # ALLOWED_HOSTS = ['35.224.227.148', '34.135.15.3']
 ALLOWED_HOSTS = ['*']
@@ -87,26 +87,6 @@ DATABASES = {
     }
 }
 
-LOGGING = {
-   'version': 1,
-   'disable_existing_loggers': False,
-   'handlers': {
-      'file': {
-         'level': 'DEBUG',
-         'class': 'logging.FileHandler',
-         'filename': '/tmp/debug.log',
-      },
-   },
-   'loggers': {
-      'django': {
-         'handlers': ['file'],
-         'level': 'DEBUG',
-         'propagate': True,
-      },
-   },
-}
-
-
 # Password validation
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
@@ -152,13 +132,10 @@ STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
 
 from google.oauth2 import service_account
 GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
-    BASE_DIR + "/proj//digital-display-menu-3fd3283ff526.json"
+    BASE_DIR + "/proj/digital-display-menu-3fd3283ff526.json"
 )
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = "https://storage.googleapis.com/display-menu/media"
-
-from google.cloud import storage
-from google.oauth2 import service_account
 
 APIKEY = 'ae66559d4a98490bbc6d76e1545eb4f3'
