@@ -28,8 +28,9 @@ class CategoryAdmin(admin.ModelAdmin):
                     for category in categories:  
                         name = category['productCategoryName']
                         id = category['productCategoryId']
-                        cursor.execute("SELECT EXISTS (SELECT FROM pg_tables WHERE schemaname = 'public' AND tablename  = 'category');", [])
-                        (exists,)=cursor.fetchone()
-                        if(exists == TRUE):
-                            cursor.execute("UPDATE category SET category_name=%s WHERE id=%s; INSERT INTO category (category_id, category_name, arrangeable, start_on_new) SELECT %s, %s, false, false WHERE NOT EXISTS (SELECT 1 FROM category WHERE category.category_id=%s);", [name, id, id, name, id])
+                        cursor.execute("UPDATE category SET category_name=%s WHERE id=%s; INSERT INTO category (category_id, category_name, arrangeable, start_on_new) SELECT %s, %s, false, false WHERE NOT EXISTS (SELECT 1 FROM category WHERE category.category_id=%s);", [name, id, id, name, id])
+                        # cursor.execute("SELECT EXISTS (SELECT FROM pg_tables WHERE schemaname = 'public' AND tablename  = 'category');", [])
+                        # (exists,)=cursor.fetchone()
+                        # if(exists == TRUE):
+                        #     cursor.execute("UPDATE category SET category_name=%s WHERE id=%s; INSERT INTO category (category_id, category_name, arrangeable, start_on_new) SELECT %s, %s, false, false WHERE NOT EXISTS (SELECT 1 FROM category WHERE category.category_id=%s);", [name, id, id, name, id])
                                     
