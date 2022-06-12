@@ -4,6 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
+import { ScreenPageComponent } from './screen-page/screen-page.component';
 import { ScreenListComponent } from './screen-list/screen-list.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -12,13 +13,15 @@ import { SharedModule } from './shared.module';
 @NgModule({
   declarations: [
     AppComponent,
-    ScreenListComponent,
+    ScreenPageComponent,
+    ScreenListComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     RouterModule.forRoot([
-      {path: 'cast/:id', component: ScreenListComponent},
+      {path: '', component: ScreenListComponent},
+      {path: 'cast/:id', component: ScreenPageComponent},
     ]),
     BrowserAnimationsModule,
     SharedModule

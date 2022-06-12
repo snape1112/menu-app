@@ -7,4 +7,5 @@ export interface Screen {
     width: number,
     created_on: Date;
     due_date: Date;
+    routerLink: string
 }
