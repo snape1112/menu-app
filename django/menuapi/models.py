@@ -25,7 +25,7 @@ class Screen(models.Model):
         choices = [('normal','Normal'),('white','White Background')], 
         null=False,
     )
-    media = models.ImageField(upload_to='images/', default='')
+    media = models.ImageField(upload_to='images/', default='', blank=True, null=True)
 
     # Date the screen was created.
     created_on = models.DateField(default=date.today)
