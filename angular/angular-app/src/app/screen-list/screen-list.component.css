@@ -1,81 +1,12 @@
-li.product {
-    list-style: none;
-    border-bottom: solid 1px grey;
+.list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 20%
 }
-
-.category_name {
-    width: 100%;
-    font-size: 40px;
-    text-align: left;
-    font-weight: 800;
-    height: 100%;
-    padding-top: 100px;
-}
-
-
-.categroy_gram {
-    font-size: 22px;
-    font-weight: 800;
-    height: 100%;
-    padding-top: 127px;
-    text-align: right;
-}
-
-.product_name {
-    width: 100%;
-    font-size: 20px;
-    text-align: left;
-    font-weight: 800;
-    height: 100%;
-    margin-top: 30px;
-}
-
-.product_price {
-    font-size: 20px;
-    font-weight: 800;
-    height: 100%;
-    text-align: right;
-    margin-top: 30px;
-}
-
-.product_content {
-    font-size: 15px;
-    font-weight: 100;
-    height: 100%;
-    text-align: left;
-    margin-top: 10px;
-    color: #F0FFFF;
-    width: 100%;
-}
-
-.product_content_black {
-    color: black;
-}
-
-.product_content span {
-    margin-right: 10px;
-}
-
-.dark {
-    background-color: black;
-    color: white;
-}
-
-html {
-    margin: 0!important;
-    padding: 0!important;
-}
-
-ul {
-    padding: 20px!important;
-}
-
-.dot {
-    height: 12px;
-    width: 12px;
-    background-color: green;
-    border-radius: 50%;
-    display: inline-block;
-    margin-top: 5px;
-    margin-right: 5px;
+  
+.mat-button-base {
+    margin: 8px 8px 8px 0;
+    font-size: 25px;
 }

@@ -37,5 +37,5 @@ class CategoryAdmin(admin.ModelAdmin):
                             );""", [])
                         (exists,)=cursor.fetchone()
                         if(exists == TRUE):
-                            cursor.execute("UPDATE category SET category_name=%s WHERE id=%s; INSERT INTO category (category_id, category_name, arrangeable) SELECT %s, %s, false WHERE NOT EXISTS (SELECT 1 FROM category WHERE category.category_id=%s);", [name, id, id, name, id])
+                            cursor.execute("UPDATE category SET category_name=%s WHERE id=%s; INSERT INTO category (category_id, category_name, arrangeable, start_on_new) SELECT %s, %s, false, false WHERE NOT EXISTS (SELECT 1 FROM category WHERE category.category_id=%s);", [name, id, id, name, id])
                                     
