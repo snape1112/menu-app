@@ -9,5 +9,5 @@ class ScreenSerializer(serializers.ModelSerializer):
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ('id', 'category_id', 'category_name', 'arrangeable', 'start_on_new')
+        fields = ('id', 'category_id', 'category_name', 'display', 'start_on_new')
 

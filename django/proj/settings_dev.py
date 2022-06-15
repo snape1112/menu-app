@@ -126,37 +126,37 @@ APIKEY = 'ae66559d4a98490bbc6d76e1545eb4f3'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-# STATIC_URL = '/static/'
-# STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-# CORS_ORIGIN_WHITELIST = (
-#     'http://localhost:4200',
-#     'http://localhost:8080',
-# )
-
-# MEDIA_URL = "/media/"
-# MEDIA_ROOT = BASE_DIR + "/media"
-
-
-# --------- test ------------
-STATIC_ROOT = "https://storage.googleapis.com/display-menu/static/"
 STATIC_URL = '/static/'
-
-DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-GS_BUCKET_NAME = 'display-menu'
-STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
-
-from google.oauth2 import service_account
-GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
-    BASE_DIR + "/proj/digital-display-menu-3fd3283ff526.json"
-)
-
-MEDIA_URL = "/media/"
-MEDIA_ROOT = "https://storage.googleapis.com/display-menu/media"
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 CORS_ORIGIN_WHITELIST = (
     'http://localhost:4200',
     'http://localhost:8080',
 )
+
+MEDIA_URL = "/media/"
+MEDIA_ROOT = BASE_DIR + "/media"
+
+
+# --------- test ------------
+# STATIC_ROOT = "https://storage.googleapis.com/display-menu/static/"
+# STATIC_URL = '/static/'
+
+# DEFAULT_FILE_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+# GS_BUCKET_NAME = 'display-menu'
+# STATICFILES_STORAGE = 'storages.backends.gcloud.GoogleCloudStorage'
+
+# from google.oauth2 import service_account
+# GS_CREDENTIALS = service_account.Credentials.from_service_account_file(
+#     BASE_DIR + "/proj/digital-display-menu-3fd3283ff526.json"
+# )
+
+# MEDIA_URL = "/media/"
+# MEDIA_ROOT = "https://storage.googleapis.com/display-menu/media"
+
+# CORS_ORIGIN_WHITELIST = (
+#     'http://localhost:4200',
+#     'http://localhost:8080',
+# )
 
 

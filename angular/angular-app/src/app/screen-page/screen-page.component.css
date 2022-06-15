@@ -3,22 +3,30 @@ li.product {
     border-bottom: solid 1px grey;
 }
 
-.category_name {
+.category_container {
+    display: flex;
     width: 100%;
+    align-items: flex-end;
+    height: 100%;
+    margin-bottom: 20px;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.category_name {
     font-size: 40px;
     text-align: left;
     font-weight: 800;
-    height: 100%;
-    padding-top: 100px;
 }
-
 
 .categroy_gram {
     font-size: 22px;
     font-weight: 800;
-    height: 100%;
-    padding-top: 127px;
+    height: 24px;
     text-align: right;
+    line-height: 24px;
 }
 
 .product_name {
@@ -26,16 +34,13 @@ li.product {
     font-size: 20px;
     text-align: left;
     font-weight: 800;
-    height: 100%;
-    margin-top: 30px;
 }
 
 .product_price {
     font-size: 20px;
     font-weight: 800;
-    height: 100%;
     text-align: right;
-    margin-top: 30px;
+    line-height: 22px!important;
 }
 
 .product_content {
@@ -76,6 +81,13 @@ ul {
     background-color: green;
     border-radius: 50%;
     display: inline-block;
-    margin-top: 5px;
     margin-right: 5px;
+}
+
+.spinner_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding-top: 20%
 }

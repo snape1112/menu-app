@@ -4,11 +4,13 @@ import { CommonModule } from '@angular/common';
 import {MatGridListModule} from '@angular/material/grid-list'
 import {MatListModule} from '@angular/material/list'
 import {MatButtonModule } from '@angular/material/button'
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
   
 const materialModules = [  
     MatGridListModule,
     MatListModule,
-    MatButtonModule
+    MatButtonModule,
+    MatProgressSpinnerModule
 ]
   
 @NgModule({

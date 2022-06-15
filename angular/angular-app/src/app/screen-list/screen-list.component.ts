@@ -12,6 +12,7 @@ import { Screen } from '../screen';
 })
 export class ScreenListComponent implements OnInit {
   screens$!: Observable<Screen[]>
+  loading: Boolean = true
 
   constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
@@ -21,6 +22,7 @@ export class ScreenListComponent implements OnInit {
 
   public getScreens() {
     this.apiService.getScreens().subscribe((res: any) => {
+      this.loading = false;
       this.screens$ = from(Array(res.screens.map((screen: Screen) => ({...screen, routerLink: "/cast/" + screen.cast_id})))) as Observable<Screen[]>;
     });
   }

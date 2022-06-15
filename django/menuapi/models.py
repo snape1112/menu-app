@@ -49,7 +49,7 @@ class Screen(models.Model):
 class Category(models.Model):
     category_id = models.IntegerField()
     category_name = models.CharField(max_length=100)
-    arrangeable = models.BooleanField()
+    display = models.BooleanField(default=False)
     start_on_new = models.BooleanField(default=False)
 
     # Meta data about the database table.
@@ -58,7 +58,7 @@ class Category(models.Model):
         db_table = 'category'
 
         # Set default ordering
-        ordering = ['id']
+        ordering = ['category_id']
 
     # Define what to output when the model is printed as a string.
     def __str__(self):
