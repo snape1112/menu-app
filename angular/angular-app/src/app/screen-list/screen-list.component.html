@@ -1,6 +1,7 @@
 <div class="list">
 	<mat-list role="list">
 		<h1>Screen List</h1>
+		<mat-spinner *ngIf='loading' color="primary"></mat-spinner>
 		<mat-list-item role="listitem" *ngFor="let screen of screens$ | async">
 			<a mat-raised-button routerLink="{{ screen.routerLink.toString() }}">Screen {{ screen.cast_id }}</a>
 		</mat-list-item>

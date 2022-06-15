@@ -34,7 +34,7 @@ class MenuList(APIView):
                 categories= Category.objects.all()
                 category_serializer = CategorySerializer(categories, many=True)
                 response['screens'] = screen_serializer.data
-                response['categories'] = category_serializer.data
+                response['categories'] = filter(lambda p : p['display'] == True, category_serializer.data)
                 response['status'] = 200
                 response['message'] = 'success'
             else:

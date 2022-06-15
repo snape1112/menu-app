@@ -6,15 +6,31 @@
 				class="product">
 				<ng-container *ngIf="row.category_id">
 					<mat-grid-list cols="6" rowHeight="100px">
-						<mat-grid-tile [colspan]="4" [rowspan]="1"><h1 class="category_name">{{ row.category_name }}</h1></mat-grid-tile>
-						<mat-grid-tile [colspan]="1" [rowspan]="1"><h5 class="categroy_gram">{{ row.smallGrams }}</h5></mat-grid-tile>
-						<mat-grid-tile [colspan]="1" [rowspan]="1"><h5 class="categroy_gram">{{ row.largeGrams }}</h5></mat-grid-tile>
+						<mat-grid-tile [colspan]="4" [rowspan]="1">
+							<div class="category_container">
+								<h1 class="category_name">{{ row.category_name }}</h1>
+							</div>
+						</mat-grid-tile>
+						<mat-grid-tile [colspan]="1" [rowspan]="1">
+							<div class="category_container justify-center">
+								<h5 class="categroy_gram">{{ row.smallGrams }}</h5>
+							</div>
+						</mat-grid-tile>
+						<mat-grid-tile [colspan]="1" [rowspan]="1">
+							<div class="category_container justify-center">
+								<h5 class="categroy_gram">{{ row.largeGrams }}</h5>
+							</div>
+						</mat-grid-tile>
 					</mat-grid-list>
 				</ng-container>
 				<ng-container *ngIf="!row.category_id">
 					<mat-grid-list cols="6" rows="2" rowHeight="40px">
-						<mat-grid-tile [colspan]="4" [rowspan]="1"><span class="dot"></span><h1 class="product_name">{{ row.internalName }}</h1></mat-grid-tile>
-						<mat-grid-tile [colspan]="1" [rowspan]="1"><h5 class="product_price">{{ row.smallPrice }}</h5></mat-grid-tile>
+						<mat-grid-tile [colspan]="4" [rowspan]="1">
+							<span class="dot"></span><h1 class="product_name">{{ row.internalName }}</h1>
+						</mat-grid-tile>
+						<mat-grid-tile [colspan]="1" [rowspan]="1">
+							<h5 class="product_price">{{ row.smallPrice }}</h5>
+						</mat-grid-tile>
 						<mat-grid-tile [colspan]="1" [rowspan]="1"><h5 class="product_price">{{ row.price }}</h5></mat-grid-tile>
 						<mat-grid-tile [colspan]="6" [rowspan]="1">
 							<h5 class="product_content" [ngClass]="{product_content_black: screen$?.style==='normal'}"><span>{{ row.productName }}</span> | <span>{{ row.thcContent }}</span> | <span>{{ row.flavor }}</span> | <span>{{ row.tags }}</span></h5>
@@ -28,4 +44,7 @@
 	<ng-container *ngIf="screen$?.type == 'media'">
 		<img [src]="screen$.media" width="{{ screen$.width }}" height="{{ screen$.height }}"/>
 	</ng-container>
+</div>
+<div class="spinner_container">
+	<mat-spinner *ngIf='loading' color="primary"></mat-spinner>
 </div>

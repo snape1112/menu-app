@@ -16,6 +16,7 @@ const PRODUCT_HEIGHT = 80;
 export class ScreenPageComponent implements OnInit {
   screen$!: any;
   cast_id!: number;
+  loading: Boolean = true
 
   constructor(private apiService: ApiService, private route: ActivatedRoute) {}
 
@@ -69,9 +70,6 @@ export class ScreenPageComponent implements OnInit {
           smallPrice: smallGrams == '1g'? product.price/2: product.price/3.5
         }));
 
-        if(category.arrangeable) {
-          cProudcts = cProudcts.sort((a: any, b: any) => a.category_name > b.category_name)
-        }
         wholeList = wholeList.concat(cProudcts);
       })
 
@@ -100,7 +98,7 @@ export class ScreenPageComponent implements OnInit {
       })
 
       this.screen$ = productScreens.find((item: any) => item.cast_id == this.cast_id);
-      console.log(this.screen$)
+      this.loading = false;
     });
   }
 }
