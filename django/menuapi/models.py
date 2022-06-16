@@ -51,6 +51,11 @@ class Category(models.Model):
     category_name = models.CharField(max_length=100)
     display = models.BooleanField(default=False)
     start_on_new = models.BooleanField(default=False)
+    my_order = models.PositiveIntegerField(
+        default=0,
+        blank=False,
+        null=False,
+    )
 
     # Meta data about the database table.
     class Meta:
@@ -58,7 +63,7 @@ class Category(models.Model):
         db_table = 'category'
 
         # Set default ordering
-        ordering = ['category_id']
+        ordering = ['my_order']
 
     # Define what to output when the model is printed as a string.
     def __str__(self):
